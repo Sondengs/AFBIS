@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import kr.hmit.afbis.R;
 import kr.hmit.base.base_fragment.BaseFragment;
 
+// 테스트 커밋
 public class BoardFragment extends BaseFragment {
     public BoardFragment() {
         // Required empty public constructor
