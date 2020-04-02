@@ -1,0 +1,3 @@
+rootProject.name='AFBIS'
+include ':app'
+include ':base'
