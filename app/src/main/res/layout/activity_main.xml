@@ -37,7 +37,7 @@
             android:adjustViewBounds="true"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:src="@drawable/main_menu1"
+            android:src="@drawable/main_menu3"
             app:layout_constraintEnd_toStartOf="@+id/imgMenu2"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -59,7 +59,7 @@
             android:adjustViewBounds="true"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:src="@drawable/main_menu1"
+            android:src="@drawable/main_menu4"
             app:layout_constraintEnd_toStartOf="@+id/imgMenu4"
             app:layout_constraintStart_toEndOf="@+id/imgMenu2" />
 
@@ -70,7 +70,7 @@
             android:adjustViewBounds="true"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:src="@drawable/main_menu1"
+            android:src="@drawable/qr"
             app:layout_constraintEnd_toStartOf="@+id/imgMenu5"
             app:layout_constraintStart_toEndOf="@+id/imgMenu3" />
 
@@ -81,7 +81,7 @@
             android:adjustViewBounds="true"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:src="@drawable/main_menu1"
+            android:src="@drawable/camera"
             app:layout_constraintEnd_toStartOf="@+id/imgMenu6"
             app:layout_constraintStart_toEndOf="@+id/imgMenu4" />
 
@@ -92,7 +92,7 @@
             android:adjustViewBounds="true"
             android:paddingTop="16dp"
             android:paddingBottom="16dp"
-            android:src="@drawable/main_menu1"
+            android:src="@drawable/main_menu2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/imgMenu5" />
     </androidx.constraintlayout.widget.ConstraintLayout>

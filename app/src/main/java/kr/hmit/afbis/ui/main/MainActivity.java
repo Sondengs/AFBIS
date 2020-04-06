@@ -9,11 +9,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.ImageView;
 
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
+
+import com.google.zxing.integration.android.IntentIntegrator;
 
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -24,6 +27,9 @@ import java.util.Locale;
 
 import kr.hmit.afbis.R;
 import kr.hmit.afbis.ui.board.BoardFragment;
+import kr.hmit.afbis.ui.calendar.CalendarFragment;
+import kr.hmit.afbis.ui.qr_scan.ScanQR;
+import kr.hmit.afbis.ui.settings.SettingFragment;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_view_pager.BaseViewPager;
 import kr.hmit.base.base_view_pager.ViewPagerAdapter;
@@ -33,7 +39,9 @@ public class MainActivity extends BaseActivity {
     //================================
     // final
     //================================
+    public static final String DATE_FORMAT_YYYYMMDD_HHMMSS = "yyyyMMdd_HHmmss";
     public static final int MEDIA_TYPE_IMAGE = 1;
+    public static final int REQUEST_CODE_TAKE_PHOTO = 1111;
 
     private int PAGE_BOARD;
     private int PAGE_CALENDAR;
@@ -43,6 +51,8 @@ public class MainActivity extends BaseActivity {
     //================================
     private BaseViewPager viewPager;
     private BoardFragment fragmentBoard;
+    private CalendarFragment fragmentCalendar;
+    private SettingFragment fragmentSetting;
 
     private ImageView imgMenu1;
     private ImageView imgMenu2;
@@ -72,8 +82,14 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void initLayout() {
+        imgMenu1 = findViewById(R.id.imgMenu1);
         imgMenu2 = findViewById(R.id.imgMenu2);
         imgMenu3 = findViewById(R.id.imgMenu3);
+        imgMenu4 = findViewById(R.id.imgMenu4);
+        imgMenu4.setOnClickListener(v -> goScan());
+        imgMenu5 = findViewById(R.id.imgMenu5);
+        imgMenu5.setOnClickListener(v -> goCamera());
+        imgMenu6 = findViewById(R.id.imgMenu6);
 
         initViewPager();
     }
@@ -84,17 +100,21 @@ public class MainActivity extends BaseActivity {
     private void initViewPager() {
         viewPager = findViewById(R.id.viewPagerMain);
 
-        fragmentBoard = new BoardFragment();
+        fragmentCalendar = CalendarFragment.newInstance();
+        fragmentBoard = BoardFragment.newInstance();
+        fragmentSetting = SettingFragment.newInstance();
 
         mListFragment = new ArrayList<>();
 
         int nIndex = 0;
         mListFragment.add(fragmentBoard);
+        mListFragment.add(fragmentCalendar);
+        mListFragment.add(fragmentSetting);
         PAGE_BOARD = nIndex++;
 
         mViewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager(), mListFragment);
         viewPager.setAdapter(mViewPagerAdapter);
-        viewPager.setPagingEnabled(false);
+        //viewPager.setPagingEnabled(false);
         viewPager.setOffscreenPageLimit(mListFragment.size() - 1);
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -131,7 +151,6 @@ public class MainActivity extends BaseActivity {
     protected void initialize() {
 
     }
-
 
 
     private File fileTakePhoto;
@@ -182,5 +201,15 @@ public class MainActivity extends BaseActivity {
         }
 
         return mediaFile;
+    }
+
+    /**
+     * QR 스캔
+     */
+    private void goScan() {
+        IntentIntegrator integrator = new IntentIntegrator(this);
+        integrator.setCaptureActivity(ScanQR.class);
+        integrator.setOrientationLocked(false);
+        integrator.initiateScan();
     }
 }
