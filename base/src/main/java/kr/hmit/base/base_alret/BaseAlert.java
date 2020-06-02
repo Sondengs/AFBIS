@@ -128,6 +128,20 @@ public class BaseAlert {
         dialog.show();
     }
 
+    /**
+     * 기본 메시지창
+     *
+     * @param context
+     * @param messageId
+     */
+    public static void show(Context context, @StringRes int messageId) {
+        AlertDialog.Builder customBuilder = new AlertDialog.Builder(context);
+        AlertDialog dialog = customBuilder.setCancelable(false)
+                .setMessage(messageId)
+                .setPositiveButton(R.string.common_confirm, null)
+                .create();
+        dialog.show();
+    }
 
     /**
      * 제목 있는 알림창

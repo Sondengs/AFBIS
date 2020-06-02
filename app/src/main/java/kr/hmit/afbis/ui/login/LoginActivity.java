@@ -1,22 +1,57 @@
 
 package kr.hmit.afbis.ui.login;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 
+import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.R;
+import kr.hmit.afbis.databinding.ActivityLoginBinding;
+import kr.hmit.afbis.http.BaseConst;
+import kr.hmit.afbis.http.Http;
+import kr.hmit.afbis.model.LoginModel;
+import kr.hmit.afbis.model.request.RequestLogin;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
+import kr.hmit.base.network.ClsNetworkCheck;
+import kr.hmit.base.network.HttpBaseService;
 import kr.hmit.base.util.PermissionUtils;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class LoginActivity extends BaseActivity {
+    //=========================
+    // final
+    //=========================
 
+
+    //=========================
+    // view
+    //=========================
+    private ActivityLoginBinding binding;
+
+
+    //=========================
+    // variable
+    //=========================
+
+
+    //=========================
+    // initialize
+    //=========================
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        binding = ActivityLoginBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
         initLayout();
 
@@ -25,37 +60,113 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initLayout() {
-
+        binding.btnLogin.setOnClickListener(v -> checkValidation());
     }
 
     @Override
     protected void initialize() {
-        if (!PermissionUtils.checkPermissionAll(mContext))
-            PermissionUtils.requestPermissionAll(mActivity);
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-
-        if(requestCode == PermissionUtils.REQUEST_CODE) {
-            PermissionUtils.checkPermissionResult(mActivity, permissions, grantResults, new PermissionUtils.OnPermissionListener() {
-                @Override
-                public void permissionGranted() {
-
-                }
-
-                @Override
-                public void permissionDenied() {
-                    BaseAlert.show(mContext, "권한을 허용하지 않으면 앱을 사용할 수 없습니다.", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            PermissionUtils.goAppSettings(mContext);
-                            finish();
-                        }
-                    });
-                }
-            });
+        if (BuildConfig.DEBUG) {
+            binding.etCode.setText("HUMAN");
+            binding.etID.setText("dyjung");
+            binding.etPW.setText("fose1245");
         }
     }
+
+    /**
+     * 값 입력 여부 확인
+     */
+    private void checkValidation() {
+        String strCode = binding.etCode.getText().toString().trim();
+        String strID = binding.etID.getText().toString().trim();
+        String strPassword = binding.etPW.getText().toString().trim();
+
+        if (TextUtils.isEmpty(strCode)) {
+            BaseAlert.show(mContext, R.string.login_0);
+            return;
+        }
+
+        if (TextUtils.isEmpty(strID)) {
+            BaseAlert.show(mContext, R.string.login_1);
+            return;
+        }
+
+        if (TextUtils.isEmpty(strPassword)) {
+            BaseAlert.show(mContext, R.string.login_2);
+            return;
+        }
+
+        RequestLogin param = new RequestLogin();
+        param.GUBUN = "";
+        param.MEM_CID = strCode;
+        param.MEM_01 = strID;
+        param.MEM_03 = strPassword;
+
+        requestLogin(param);
+    }
+
+
+    //=========================
+    // api
+    //=========================
+
+    /**
+     * 로그인을 한다.
+     */
+    private void requestLogin(RequestLogin param) {
+        if (!ClsNetworkCheck.isConnectable(mContext)) {
+            BaseAlert.show(mContext, R.string.network_error_1);
+            return;
+        }
+
+        openLoadingBar();
+
+        Http.member(HttpBaseService.TYPE.POST, BaseConst.URL_HOST).login(
+                BaseConst.URL_HOST,
+                param
+        ).enqueue(new Callback<LoginModel>() {
+            @SuppressLint("HandlerLeak")
+            @Override
+            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
+                Message msg = new Message();
+                msg.obj = response;
+                msg.what = 100;
+
+                //=====================
+                // response callback
+                //=====================
+                new Handler() {
+                    @Override
+                    public void handleMessage(Message msg) {
+                        if (msg.what == 100) {
+                            closeLoadingBar();
+
+                            Response<LoginModel> response = (Response<LoginModel>) msg.obj;
+
+                            if (response.isSuccessful()) {
+                                if (response.body().Data.get(0).Validation) {
+                                    toast("로그인 성공");
+                                } else {
+                                    BaseAlert.show(mContext, "ErrorCode : " + response.body().Data.get(0).ErrorCode);
+                                }
+                            } else {
+                                BaseAlert.show(mContext, R.string.network_error_2);
+                            }
+                        }
+                    }
+                }.sendMessage(msg);
+            }
+
+            @Override
+            public void onFailure(Call<LoginModel> call, Throwable t) {
+                closeLoadingBar();
+                call.cancel();
+            }
+        });
+    }
+
+
+    //=========================
+    // event
+    //=========================
+
 }

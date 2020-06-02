@@ -2,7 +2,9 @@ package kr.hmit.base.base_activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -82,5 +84,23 @@ public abstract class BaseActivity extends FragmentActivity {
 //        if (mLoadingBar != null) {
 //            mLoadingBar.dismiss();
 //        }
+    }
+
+    /**
+     * 액티비티 이동
+     * @param cls
+     */
+    protected void goActivity(Class<?> cls) {
+        Intent intent = new Intent(mContext, cls);
+        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        mContext.startActivity(intent);
+    }
+
+    /**
+     * 토스트 메시지
+     * @param message
+     */
+    protected void toast(String message) {
+        Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
     }
 }

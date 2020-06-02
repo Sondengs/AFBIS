@@ -50,29 +50,8 @@ public class HttpBaseService {
                     .addInterceptor(new Interceptor() {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
+
                             Request request = chain.request();
-                            Request.Builder requestBuilder = request.newBuilder();
-//                                    .addHeader("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsInVzZXJfbmFtZSI6InRlc3QiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJ0cnVzdCJdLCJleHAiOjE1NjQ2Njg4MjMsImF1dGhvcml0aWVzIjpbIlJPTEVfVVNFUiJdLCJqdGkiOiI2ODkwNTRlMi05MjAxLTRjOWQtODQxMS0wZDAxNGJlN2NhM2YiLCJjbGllbnRfaWQiOiJ0YWdvbmFuX3RpZ2VyLmJvb2traW5nLWNsaWVudCJ9.k-e6yKPVsgfOW5wQH_-QrBprrDUKiqnng5nU4rrdDa8");
-
-                            //----------
-                            // GET
-                            //----------
-                            if (type.equals(TYPE.GET)) {
-                                request = requestBuilder.get().build();
-//                                Response response = chain.proceed(request);
-
-//                              String strResponseBody = response.body().string();
-
-                                return chain.proceed(request);
-                            }
-
-                            String postBodyString = HttpBaseService.toString(request.body());
-
-//                            postBodyString = URLDecoder.decode(postBodyString, CHARSET_NAME);
-//                            String param = getJsonStringParameter(postBodyString);
-//
-//                            RequestBody formBody = new FormBody.Builder().add(POST_PARAM, param).build();
-//                            request = requestBuilder.post(RequestBody.create(MediaType.parse(TYPE_SUBTYPE), HttpBaseService.toString(formBody))).build();
 
                             return chain.proceed(request);
                         }

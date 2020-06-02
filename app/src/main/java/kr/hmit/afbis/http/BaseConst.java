@@ -8,7 +8,7 @@ public class BaseConst {
     //--------------------------------------------------
     // 테스트
     //public static String URL_HOST = "http://nsapp.aoasis.co.kr";
-    //public static String URL_HOST = "http://app.smfactory.kr";
+    public static String URL_HOST = "http://app.smfactory.kr";
 
     //--------------------------------------------------
     // 로그인
