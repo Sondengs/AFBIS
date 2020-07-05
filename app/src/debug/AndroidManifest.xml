@@ -9,7 +9,12 @@
         <activity
             android:name="kr.hmit.afbis.ui.intro.IntroActivity"
             android:exported="true" />
-
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.main.MainDashboardActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

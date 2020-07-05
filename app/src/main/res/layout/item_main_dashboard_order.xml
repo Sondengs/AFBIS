@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:paddingBottom="8dp">
+
+    <TextView
+        android:id="@+id/tvOrderDate"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#9e9e9e"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvOrderer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="2020-07-08" />
+
+    <TextView
+        android:id="@+id/tvOrderer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#9e9e9e"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvOrderItem"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderDate"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="이마트" />
+
+    <TextView
+        android:id="@+id/tvOrderItem"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#9e9e9e"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvOrderQuantity"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderer"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="김자반" />
+
+    <TextView
+        android:id="@+id/tvOrderQuantity"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#9e9e9e"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toStartOf="@+id/tvOrderDDay"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderItem"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="12,000" />
+
+    <TextView
+        android:id="@+id/tvOrderDDay"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:singleLine="true"
+        android:textColor="#9e9e9e"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvOrderQuantity"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="53" />
+</androidx.constraintlayout.widget.ConstraintLayout>

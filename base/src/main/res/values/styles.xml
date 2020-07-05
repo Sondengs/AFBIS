@@ -15,16 +15,24 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <!--Status Bar 글자색깔-->
         <item name="android:windowLightStatusBar">false</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
+        <item name="android:fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light">
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
+    </style>
 
     <!-- 테마 -->
     <style name="TranslucentUser" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
@@ -32,6 +40,7 @@
         <item name="android:colorBackgroundCacheHint">@null</item>
         <item name="android:windowIsTranslucent">false</item>
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
+        <item name="fontFamily">@font/noto_sans_cjk_kr_regular</item>
     </style>
 
 </resources>

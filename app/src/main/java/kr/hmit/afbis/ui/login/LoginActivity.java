@@ -144,7 +144,7 @@ public class LoginActivity extends BaseActivity {
 
                             if (response.isSuccessful()) {
                                 if (response.body().Data.get(0).Validation) {
-                                    toast("로그인 성공");
+                                    goMain();
                                 } else {
                                     BaseAlert.show(mContext, "ErrorCode : " + response.body().Data.get(0).ErrorCode);
                                 }
@@ -162,6 +162,13 @@ public class LoginActivity extends BaseActivity {
                 call.cancel();
             }
         });
+    }
+
+    /**
+     * 메인으로 간다.
+     */
+    private void goMain() {
+        toast("로그인 성공");
     }
 
 
