@@ -27,7 +27,7 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:adjustViewBounds="true"
-                android:background="@drawable/shape_round"
+                android:background="@drawable/shape_round5_border1"
                 android:src="@drawable/main_profile_no_image" />
 
             <!-- 프로필 이름 -->

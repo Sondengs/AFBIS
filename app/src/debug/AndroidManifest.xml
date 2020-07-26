@@ -15,6 +15,9 @@
         <activity
             android:name=".ui.main.MainDashboardActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.find_employee.FindEmployeeActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

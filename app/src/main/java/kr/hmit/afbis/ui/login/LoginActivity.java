@@ -2,27 +2,22 @@
 package kr.hmit.afbis.ui.login;
 
 import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.text.TextUtils;
-import android.view.View;
-
-import androidx.annotation.NonNull;
 
 import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ActivityLoginBinding;
-import kr.hmit.afbis.http.BaseConst;
-import kr.hmit.afbis.http.Http;
-import kr.hmit.afbis.model.LoginModel;
+import kr.hmit.afbis.network.BaseConst;
+import kr.hmit.afbis.network.Http;
+import kr.hmit.afbis.model.response.LoginModel;
 import kr.hmit.afbis.model.request.RequestLogin;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
 import kr.hmit.base.network.ClsNetworkCheck;
 import kr.hmit.base.network.HttpBaseService;
-import kr.hmit.base.util.PermissionUtils;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

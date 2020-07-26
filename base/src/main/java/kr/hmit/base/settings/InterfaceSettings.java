@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import kr.hmit.base.BuildConfig;
+
 public class InterfaceSettings {
     public static InterfaceSettings instance;
 
@@ -50,9 +52,13 @@ public class InterfaceSettings {
         Value.MEM_99 = getStringItem(SettingsKey.MEM_99, "");
 
 
-        Value.MEM_CID = "NAMHAE";
-        Value.Host = "http://app.smfactory.kr";
-        Value.WebUrl = "http://nhm.smfactory.kr";
+        if(BuildConfig.DEBUG) {
+            Value.MEM_CID = "HUMAN";
+            Value.MEM_01 = "dyjung";
+            Value.TKN_03 = "0xB2AD575298093F903016CFBE231AC94D2E13175F";
+            Value.Host = "http://app.smfactory.kr";
+            Value.WebUrl = "http://nhm.smfactory.kr";
+        }
 
         Value.FileProviderPath = mContext.getPackageName() + ".fileprovider";
 

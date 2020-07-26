@@ -98,25 +98,48 @@ public class DrawerMenuFragment extends BaseFragment {
         binding.recyclerView.setLayoutManager(layoutManager);
 
         mList = new ArrayList<>();
-        if (BuildConfig.DEBUG) {
-            mList.add(new MenuVO("커뮤니티", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("기준정보", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("제품관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("입고관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("설비관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("생산관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("출고관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("품질관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("농가관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("재고관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("택배관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("고객관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("인증관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("프로젝트 관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("지원사업", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("홍보/마케팅", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-            mList.add(new MenuVO("통계분석", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
-        }
+
+        // 목록
+        mList.add(new MenuVO("커뮤니티", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("업무관리", "00"),
+                new SubMenuVO("일정관리", "01")
+        ))));
+        mList.add(new MenuVO("기준정보", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("거래처관리", "10"),
+                new SubMenuVO("작업자코드", "11")
+        ))));
+        mList.add(new MenuVO("제품관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("제품정보", "20")
+        ))));
+        mList.add(new MenuVO("입고관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("발주관리", "30"),
+                new SubMenuVO("입고대기", "31")
+        ))));
+        mList.add(new MenuVO("설비관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("설비정보", "40")
+        ))));
+        mList.add(new MenuVO("생산관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("생산계획", "50"),
+                new SubMenuVO("제품실적", "51")
+        ))));
+        mList.add(new MenuVO("출고관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("주문접수", "60"),
+                new SubMenuVO("출고대기", "61")
+        ))));
+        mList.add(new MenuVO("재고관리", new ArrayList<>(Arrays.asList(
+                new SubMenuVO("재고목록", "70")
+        ))));
+
+//        mList.add(new MenuVO("품질관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("농가관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("택배관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("고객관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("인증관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("프로젝트 관리", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("지원사업", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("홍보/마케팅", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+//        mList.add(new MenuVO("통계분석", new ArrayList<>(Arrays.asList("제품정보", "BOM관리", "단가이력", "전용품목"))));
+
         mAdapter = new MenuAdapter(mContext, mList);
         binding.recyclerView.setAdapter(mAdapter);
         binding.recyclerView.setItemAnimator(new DefaultItemAnimator());

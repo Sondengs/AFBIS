@@ -24,7 +24,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter {
     // variable
     //=================================
     private Context mContext;
-    private ArrayList<String> mList;
+    private ArrayList<SubMenuVO> mList;
 
     //=================================
     // interface
@@ -59,7 +59,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolder finalHolder = (ViewHolder) holder;
 
-        finalHolder.tvSubMenu.setText(mList.get(position));
+        finalHolder.tvSubMenu.setText(mList.get(position).SubTitle);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter {
     }
 
 
-    public void update(ArrayList<String> subMenu) {
+    public void update(ArrayList<SubMenuVO> subMenu) {
         mList = subMenu;
     }
 
@@ -83,7 +83,7 @@ public class SubMenuAdapter extends RecyclerView.Adapter {
             itemView.setOnClickListener(view -> {
                 int pos = getAdapterPosition();
 
-                Toast.makeText(mContext, "SubMenu Click - " + tvSubMenu.getText().toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext, "SubMenu Click - " + mList.get(pos).Code, Toast.LENGTH_SHORT).show();
 
                 if (onItemClickListener != null) {
                     onItemClickListener.onItemClick(view, pos);

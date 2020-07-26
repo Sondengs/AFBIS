@@ -1,4 +1,4 @@
-package kr.hmit.afbis.model;
+package kr.hmit.afbis.model.response;
 
 import java.io.Serializable;
 import java.util.ArrayList;

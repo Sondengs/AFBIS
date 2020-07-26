@@ -8,4 +8,12 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="find_employee_0">담당자 찾기</string>
+    <string name="find_employee_1">담당자</string>
+    <string name="find_employee_2">직급</string>
+    <string name="find_employee_3">선택</string>
+    <string name="find_employee_4">추가</string>
+    <string name="find_employee_5"></string>
+    <string name="find_employee_6"></string>
 </resources>
