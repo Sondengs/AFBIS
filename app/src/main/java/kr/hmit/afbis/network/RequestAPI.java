@@ -8,11 +8,12 @@ import android.os.Message;
 import com.annimon.stream.function.Consumer;
 
 import kr.hmit.afbis.R;
-import kr.hmit.afbis.model.response.BaseModel;
 import kr.hmit.afbis.model.response.MEM_ReadModel;
 import kr.hmit.afbis.model.response.WKS_Model;
 import kr.hmit.base.BaseApplication;
 import kr.hmit.base.base_alret.BaseAlert;
+import kr.hmit.base.model.BaseModel;
+import kr.hmit.base.network.BaseConst;
 import kr.hmit.base.network.ClsNetworkCheck;
 import kr.hmit.base.network.HttpBaseService;
 import kr.hmit.base.settings.InterfaceSettings;

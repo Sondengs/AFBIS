@@ -1,4 +1,4 @@
-package kr.hmit.afbis.network;
+package kr.hmit.base.network;
 
 
 public class BaseConst {

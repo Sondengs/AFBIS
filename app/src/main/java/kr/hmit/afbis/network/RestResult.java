@@ -1,6 +1,6 @@
 package kr.hmit.afbis.network;
 
-import kr.hmit.afbis.model.response.BaseModel;
+import kr.hmit.base.model.BaseModel;
 
 public class RestResult {
     public final BaseModel mData;

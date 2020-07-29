@@ -1,26 +1,16 @@
 
 package kr.hmit.afbis.ui.login;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.TextUtils;
 
 import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ActivityLoginBinding;
-import kr.hmit.afbis.network.BaseConst;
-import kr.hmit.afbis.network.Http;
-import kr.hmit.afbis.model.response.LoginModel;
-import kr.hmit.afbis.model.request.RequestLogin;
+import kr.hmit.afbis.ui.main.MainDashboardActivity;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
-import kr.hmit.base.network.ClsNetworkCheck;
-import kr.hmit.base.network.HttpBaseService;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import kr.hmit.base.model.LoginModel;
 
 public class LoginActivity extends BaseActivity {
     //=========================
@@ -90,13 +80,7 @@ public class LoginActivity extends BaseActivity {
             return;
         }
 
-        RequestLogin param = new RequestLogin();
-        param.GUBUN = "";
-        param.MEM_CID = strCode;
-        param.MEM_01 = strID;
-        param.MEM_03 = strPassword;
-
-        requestLogin(param);
+        requestLogin();
     }
 
 
@@ -107,54 +91,21 @@ public class LoginActivity extends BaseActivity {
     /**
      * 로그인을 한다.
      */
-    private void requestLogin(RequestLogin param) {
-        if (!ClsNetworkCheck.isConnectable(mContext)) {
-            BaseAlert.show(mContext, R.string.network_error_1);
-            return;
-        }
-
-        openLoadingBar();
-
-        Http.member(HttpBaseService.TYPE.POST, BaseConst.URL_HOST).login(
-                BaseConst.URL_HOST,
-                param
-        ).enqueue(new Callback<LoginModel>() {
-            @SuppressLint("HandlerLeak")
+    private void requestLogin() {
+        requestLogin(new OnRequestLogin() {
             @Override
-            public void onResponse(Call<LoginModel> call, Response<LoginModel> response) {
-                Message msg = new Message();
-                msg.obj = response;
-                msg.what = 100;
-
-                //=====================
-                // response callback
-                //=====================
-                new Handler() {
-                    @Override
-                    public void handleMessage(Message msg) {
-                        if (msg.what == 100) {
-                            closeLoadingBar();
-
-                            Response<LoginModel> response = (Response<LoginModel>) msg.obj;
-
-                            if (response.isSuccessful()) {
-                                if (response.body().Data.get(0).Validation) {
-                                    goMain();
-                                } else {
-                                    BaseAlert.show(mContext, "ErrorCode : " + response.body().Data.get(0).ErrorCode);
-                                }
-                            } else {
-                                BaseAlert.show(mContext, R.string.network_error_2);
-                            }
-                        }
-                    }
-                }.sendMessage(msg);
+            public void isSuccess(LoginModel.UserInfo userInfo) {
+                goMain();
             }
 
             @Override
-            public void onFailure(Call<LoginModel> call, Throwable t) {
-                closeLoadingBar();
-                call.cancel();
+            public void isFail(String errorMsg) {
+
+            }
+
+            @Override
+            public void isNotConnectable() {
+                BaseAlert.show(mContext, R.string.network_error_1);
             }
         });
     }
@@ -163,7 +114,8 @@ public class LoginActivity extends BaseActivity {
      * 메인으로 간다.
      */
     private void goMain() {
-        toast("로그인 성공");
+        goActivity(MainDashboardActivity.class);
+        finish();
     }
 
 

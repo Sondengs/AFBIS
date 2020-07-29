@@ -1,13 +1,10 @@
 package kr.hmit.afbis.network;
 
-import kr.hmit.afbis.model.request.RequestLogin;
-import kr.hmit.afbis.model.response.BaseModel;
-import kr.hmit.afbis.model.response.LoginModel;
 import kr.hmit.afbis.model.response.MEM_ReadModel;
 import kr.hmit.afbis.model.response.WKS_Model;
+import kr.hmit.base.model.BaseModel;
 import kr.hmit.base.network.HttpBaseService;
 import retrofit2.Call;
-import retrofit2.http.Body;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
@@ -16,26 +13,7 @@ import retrofit2.http.Query;
 
 
 public class Http extends HttpBaseService {
-    private static final String MEMBER_URL = "Mobile";
     private static final String WKS_URL = "Z02001C001";
-
-    //--------------------------------------------------
-    // 회원
-    //--------------------------------------------------
-    public static MEM_SELECT member(TYPE type, String host) {
-        return (MEM_SELECT) retrofit(MEM_SELECT.class, type, host);
-    }
-
-    public interface MEM_SELECT {
-        /**
-         * 로그인
-         */
-        @POST("{host}/" + MEMBER_URL + "/MEM_SELECT")
-        Call<LoginModel> login(
-                @Path(value = "host", encoded = true) String host,
-                @Body RequestLogin param);
-    }
-
 
     //--------------------------------------------------
     // 업무 관리
