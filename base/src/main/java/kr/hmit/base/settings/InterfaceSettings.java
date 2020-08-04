@@ -55,7 +55,7 @@ public class InterfaceSettings {
         if(BuildConfig.DEBUG) {
             Value.MEM_CID = "HUMAN";
             Value.MEM_01 = "dyjung";
-            Value.TKN_03 = "0xB2AD575298093F903016CFBE231AC94D2E13175F";
+//            Value.TKN_03 = "0xB2AD575298093F903016CFBE231AC94D2E13175F";
             Value.Host = "http://app.smfactory.kr";
             Value.WebUrl = "http://nhm.smfactory.kr";
         }

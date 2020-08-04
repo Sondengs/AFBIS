@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.find_employee.FindEmployeeActivity">
+    tools:context=".ui.wks.WorkManagementListActivity">
 
     <!-- region header -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,7 +28,7 @@
 
         <TextView
             style="@style/BaseHeader"
-            android:text="@string/find_employee_0"
+            android:text="업무관리"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -47,56 +47,55 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/shape_round10_white"
-        android:elevation="3dp"
+        android:background="#f2f5f8"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layoutHeader">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/layoutTitle"
+            android:id="@+id/layoutSearch"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:background="@drawable/shape_round_top10"
+            android:layout_height="68dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/shape_round10_white"
+            android:elevation="3dp"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/tvTextName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:gravity="center"
-                android:text="@string/find_employee_1"
-                android:textColor="@color/white"
-                android:textSize="16dp"
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="36dp"
+                android:layout_margin="16dp"
+                android:background="@drawable/shape_round5_skyblue"
+                android:singleLine="true"
+                android:imeOptions="actionSearch"
+                android:hint="업무내용/요청자/담당자"
+                android:maxLength="20"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textColorHint="@color/white"
+                android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/imgFilter"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/tvTextPosition"
+            <ImageView
+                android:id="@+id/imgSearch"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="@string/find_employee_2"
-                android:textColor="@color/white"
-                android:textSize="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/tvTextSelect"
-                app:layout_constraintStart_toEndOf="@+id/tvTextName"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/search"
+                app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+                app:layout_constraintEnd_toEndOf="@+id/etSearch"
+                app:layout_constraintTop_toTopOf="@+id/etSearch" />
 
-            <TextView
-                android:id="@+id/tvTextSelect"
-                android:layout_width="80dp"
+            <ImageView
+                android:id="@+id/imgFilter"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="24dp"
-                android:gravity="center"
-                android:text="@string/find_employee_3"
-                android:textColor="@color/white"
-                android:textSize="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/filter_list_24_px"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -106,11 +105,20 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:clipToPadding="false"
-            android:paddingTop="5dp"
+            android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutTitle"
-            tools:itemCount="100"
-            tools:listitem="@layout/item_find_employee" />
+            app:layout_constraintTop_toBottomOf="@+id/layoutSearch"
+            tools:listitem="@layout/item_work_management_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imgGoTop"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/shape_circle_48dp_skyblue"
+        android:padding="12dp"
+        android:src="@drawable/vertical_align_top_24_px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

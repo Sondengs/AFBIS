@@ -18,6 +18,9 @@
         <activity
             android:name=".ui.find_employee.FindEmployeeActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.wks.WorkManagementListActivity"
+            android:exported="true" />
     </application>
 
 </manifest>

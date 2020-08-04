@@ -229,7 +229,7 @@ public class RequestAPI {
                 BaseConst.URL_HOST,
                 "HUMAN",
                 "dyjung",
-                "0xB2AD575298093F903016CFBE231AC94D2E13175F",
+                "0x34C3116EBF204EBF69455026A8CF5C2DCDBD244E",
                 "M_LIST",
                 "HUMAN",
                 "유대성"
