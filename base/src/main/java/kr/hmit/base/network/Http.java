@@ -9,7 +9,7 @@ import retrofit2.http.Path;
 
 
 public class Http extends HttpBaseService {
-    private static final String MEMBER_URL = "Moblie";
+    private static final String MEMBER_URL = "Mobile";
 
     //--------------------------------------------------
     // 회원
