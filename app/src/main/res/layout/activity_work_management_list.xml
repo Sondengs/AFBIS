@@ -34,6 +34,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:id="@+id/imgWriteWork"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:src="@drawable/edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1px"
@@ -67,12 +78,12 @@
                 android:layout_height="36dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/shape_round5_skyblue"
-                android:singleLine="true"
-                android:imeOptions="actionSearch"
                 android:hint="업무내용/요청자/담당자"
+                android:imeOptions="actionSearch"
                 android:maxLength="20"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:singleLine="true"
                 android:textColorHint="@color/white"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
