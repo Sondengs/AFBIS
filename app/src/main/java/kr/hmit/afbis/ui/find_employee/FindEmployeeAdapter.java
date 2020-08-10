@@ -2,6 +2,7 @@ package kr.hmit.afbis.ui.find_employee;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -9,10 +10,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ItemFindEmployeeBinding;
 import kr.hmit.afbis.model.vo.MEM_ReadVO;
+import kr.hmit.base.base_alret.BaseAlert;
 
 public class FindEmployeeAdapter extends RecyclerView.Adapter {
+    //=================================
+    // interface
+    //=================================
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position, boolean isDelete);
+    }
+
+    private OnItemClickListener onItemClickListener;
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
+
     //===========================
     // variable
     //===========================
@@ -41,6 +57,8 @@ public class FindEmployeeAdapter extends RecyclerView.Adapter {
 
         finalHolder.binding.tvTextName.setText(vo.MEM_02);
         finalHolder.binding.tvTextPosition.setText(vo.MEM_32_NM);
+        finalHolder.binding.tvTextSelect.setText(vo.isSelected ? "제거" : "추가");
+        finalHolder.binding.tvTextSelect.setSelected(vo.isSelected);
     }
 
     @Override
@@ -65,7 +83,39 @@ public class FindEmployeeAdapter extends RecyclerView.Adapter {
 
         public ViewHolder(ItemFindEmployeeBinding binding) {
             super(binding.getRoot());
+
             this.binding = binding;
+
+            binding.tvTextSelect.setOnClickListener(v -> {
+                int pos = getAdapterPosition();
+                if (onItemClickListener != null) {
+                    if (getSelectedCount() >= 5 && !mList.get(pos).isSelected) {
+                        BaseAlert.show(mContext, R.string.find_employee_5);
+                        return;
+                    }
+
+                    mList.get(pos).isSelected = !mList.get(pos).isSelected;
+                    onItemClickListener.onItemClick(v, pos, !mList.get(pos).isSelected);
+
+                    notifyDataSetChanged();
+                }
+            });
         }
+    }
+
+    /**
+     * 선택된 갯수를 가져온다.
+     *
+     * @return
+     */
+    private int getSelectedCount() {
+        int count = 0;
+
+        for (int i = 0; i < mList.size(); i++) {
+            if (mList.get(i).isSelected)
+                count++;
+        }
+
+        return count;
     }
 }

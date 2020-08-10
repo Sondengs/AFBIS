@@ -10,6 +10,7 @@ public class MEM_ReadVO implements Serializable {
     public String MEM_02;
     public String MEM_32;
     public String MEM_32_NM;
+    public boolean isSelected;
 
     public boolean Validation;
     public String ErrorCode;

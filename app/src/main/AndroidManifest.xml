@@ -23,7 +23,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.wks.WorkManagementListActivity"></activity>
+        <activity android:name=".ui.wks.write_work.WriteWorkActivity"></activity>
+        <activity android:name=".ui.wks.WorkManagementListActivity" />
         <activity android:name=".ui.find_employee.FindEmployeeActivity" />
         <activity android:name=".ui.main.MainDashboardActivity" />
         <activity

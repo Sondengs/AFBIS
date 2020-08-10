@@ -1,12 +1,14 @@
 package kr.hmit.base.user_interface;
 
+import kr.hmit.base.model.LoginModel;
+
 public class InterfaceUser {
     public static InterfaceUser instance;
 
-    public UserValue Value;
+    public UserInfo Value;
 
     public InterfaceUser() {
-        Value = new UserValue();
+        Value = new UserInfo();
     }
 
     public static synchronized InterfaceUser getInstance() {

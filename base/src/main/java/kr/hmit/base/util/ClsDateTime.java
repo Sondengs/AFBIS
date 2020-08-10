@@ -94,6 +94,7 @@ public class ClsDateTime {
 		return strDatetime;
 	}
 
+
 	/**
 	 * 해당 포맷으로 String datetime을 전달한다.
 	 * 
@@ -196,7 +197,7 @@ public class ClsDateTime {
 	 *
 	 * @return
 	 */
-	public static String getSytemDateFormat(Locale locale) {
+	public static String getSystemDateFormat(Locale locale) {
 		return DateFormat.getBestDateTimePattern(locale, "yyyy-MM-dd");
 	}
 

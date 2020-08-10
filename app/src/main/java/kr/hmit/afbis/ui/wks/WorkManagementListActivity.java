@@ -1,20 +1,14 @@
 package kr.hmit.afbis.ui.wks;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.text.TextUtils;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -23,9 +17,7 @@ import kr.hmit.afbis.databinding.ActivityWorkManagementListBinding;
 import kr.hmit.afbis.model.response.WKS_Model;
 import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.network.Http;
-import kr.hmit.afbis.network.RequestAPI;
-import kr.hmit.afbis.network.RestResult;
-import kr.hmit.base.BaseApplication;
+import kr.hmit.afbis.ui.wks.write_work.WriteWorkActivity;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
 import kr.hmit.base.network.BaseConst;
@@ -100,7 +92,6 @@ public class WorkManagementListActivity extends BaseActivity {
     }
 
 
-
     @Override
     protected void initialize() {
         requestWKS_Read();
@@ -132,11 +123,11 @@ public class WorkManagementListActivity extends BaseActivity {
 
         Http.wks(HttpBaseService.TYPE.GET, BaseConst.URL_HOST).WKS_Read(
                 BaseConst.URL_HOST,
-                "HUMAN",
-                "dyjung",
-                "0x34C3116EBF204EBF69455026A8CF5C2DCDBD244E",
+                mUser.Value.MEM_CID,
+                mUser.Value.MEM_01,
+                mUser.Value.TKN_03,
                 "M_LIST",
-                "HUMAN",
+                mUser.Value.MEM_CID,
                 "유대성"
         ).enqueue(new Callback<WKS_Model>() {
             @SuppressLint("HandlerLeak")
@@ -249,7 +240,7 @@ public class WorkManagementListActivity extends BaseActivity {
 
 
     private void onClickGoWriteWork(View v) {
-
+        goActivity(WriteWorkActivity.class);
     }
 
     //==============================

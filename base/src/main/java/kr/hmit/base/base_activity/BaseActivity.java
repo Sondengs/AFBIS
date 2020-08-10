@@ -22,6 +22,7 @@ import kr.hmit.base.network.HttpBaseService;
 import kr.hmit.base.settings.InterfaceSettings;
 import kr.hmit.base.settings.SettingsKey;
 import kr.hmit.base.user_interface.InterfaceUser;
+import kr.hmit.base.user_interface.UserInfo;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -55,6 +56,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             mActivity = this;
         if (mSettings == null)
             mSettings = InterfaceSettings.getInstance(this);
+        if (mUser == null)
+            mUser = InterfaceUser.getInstance();
     }
 
     @Override
@@ -134,7 +137,7 @@ public abstract class BaseActivity extends AppCompatActivity {
     // api
     //==============================
     public interface OnRequestLogin {
-        void isSuccess(LoginModel.UserInfo userInfo);
+        void isSuccess(UserInfo userInfo);
 
         void isFail(String errorMsg);
 
@@ -176,9 +179,10 @@ public abstract class BaseActivity extends AppCompatActivity {
 
                             if (response.isSuccessful()) {
                                 if (response.body().Data.get(0).Validation) {
-                                    LoginModel.UserInfo userInfo = response.body().Data.get(0);
-                                    mSettings.Value.TKN_03 = userInfo.TKN_03;
-                                    mSettings.putStringItem(SettingsKey.TKN_03, userInfo.TKN_03);
+                                    InterfaceUser.instance.Value = response.body().Data.get(0);
+
+                                    mSettings.Value.TKN_03 = mUser.Value.TKN_03;
+                                    mSettings.putStringItem(SettingsKey.TKN_03, mUser.Value.TKN_03);
 
                                     onRequestLoginListener.isSuccess(response.body().Data.get(0));
                                 } else {

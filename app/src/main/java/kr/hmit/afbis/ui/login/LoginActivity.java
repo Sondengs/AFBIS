@@ -8,9 +8,10 @@ import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ActivityLoginBinding;
 import kr.hmit.afbis.ui.main.MainDashboardActivity;
+import kr.hmit.afbis.ui.wks.WorkManagementListActivity;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
-import kr.hmit.base.model.LoginModel;
+import kr.hmit.base.user_interface.UserInfo;
 
 public class LoginActivity extends BaseActivity {
     //=========================
@@ -54,6 +55,7 @@ public class LoginActivity extends BaseActivity {
             binding.etCode.setText("HUMAN");
             binding.etID.setText("dyjung");
             binding.etPW.setText("fose1245");
+            binding.btnLogin.performClick();
         }
     }
 
@@ -94,7 +96,7 @@ public class LoginActivity extends BaseActivity {
     private void requestLogin() {
         requestLogin(new OnRequestLogin() {
             @Override
-            public void isSuccess(LoginModel.UserInfo userInfo) {
+            public void isSuccess(UserInfo userInfo) {
                 goMain();
             }
 
@@ -114,7 +116,8 @@ public class LoginActivity extends BaseActivity {
      * 메인으로 간다.
      */
     private void goMain() {
-        goActivity(MainDashboardActivity.class);
+        goActivity(WorkManagementListActivity.class);
+        //goActivity(MainDashboardActivity.class);
         finish();
     }
 
