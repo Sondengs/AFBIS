@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks;
+package kr.hmit.afbis.ui.work_management;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -12,11 +12,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import java.util.ArrayList;
 
 import kr.hmit.afbis.R;
-import kr.hmit.afbis.databinding.ActivityWorkManagementListBinding;
+import kr.hmit.afbis.databinding.ActivityWorkManagementMainBinding;
 import kr.hmit.afbis.model.response.WKS_Model;
 import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.network.Http;
-import kr.hmit.afbis.ui.wks.adapter.WorkManagementListAdapter;
+import kr.hmit.afbis.ui.work_management.adapter.WorkManagementListAdapter;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
 import kr.hmit.base.network.BaseConst;
@@ -26,12 +26,12 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WorkManagementListActivity extends BaseActivity {
+public class WorkManagementMainActivity extends BaseActivity {
     //=============================
     // region // view
     //=============================
 
-    private ActivityWorkManagementListBinding binding;
+    private ActivityWorkManagementMainBinding binding;
 
     //=============================
     // endregion
@@ -40,6 +40,7 @@ public class WorkManagementListActivity extends BaseActivity {
     //=============================
     // region // variable
     //=============================
+
     private WorkManagementListAdapter mAdapter;
     private ArrayList<WKS_VO> mListTotal;
     private ArrayList<WKS_VO> mListSearch;
@@ -54,7 +55,7 @@ public class WorkManagementListActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityWorkManagementListBinding.inflate(getLayoutInflater());
+        binding = ActivityWorkManagementMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initLayout();
@@ -79,7 +80,6 @@ public class WorkManagementListActivity extends BaseActivity {
 
             return true;
         });
-
         binding.imgWriteWork.setOnClickListener(this::onClickGoWriteWork);
     }
 
@@ -211,7 +211,7 @@ public class WorkManagementListActivity extends BaseActivity {
      * @param v
      */
     private void onClickSearch(View v) {
-        String strSearch = binding.etSearch.getText().toString().trim();
+        String strSearch = binding.etSearch.getText().toString().toUpperCase().trim();
 
         if (strSearch.isEmpty()) {
             mAdapter.update(mListTotal);
@@ -223,12 +223,12 @@ public class WorkManagementListActivity extends BaseActivity {
         for (int i = 0; i < mListTotal.size(); i++) {
             WKS_VO vo = mListTotal.get(i);
 
-            if (vo.WKS_98.contains(strSearch)
-                    || vo.WKS_1001_NM.contains(strSearch)
-                    || vo.WKS_1101_NM.contains(strSearch)
-                    || vo.WKS_1201_NM.contains(strSearch)
-                    || vo.WKS_1301_NM.contains(strSearch)
-                    || vo.WKS_04.contains(strSearch)) {
+            if (vo.WKS_98.toUpperCase().contains(strSearch)
+                    || vo.WKS_1001_NM.toUpperCase().contains(strSearch)
+                    || vo.WKS_1101_NM.toUpperCase().contains(strSearch)
+                    || vo.WKS_1201_NM.toUpperCase().contains(strSearch)
+                    || vo.WKS_1301_NM.toUpperCase().contains(strSearch)
+                    || vo.WKS_04.toUpperCase().contains(strSearch)) {
                 mListSearch.add(vo);
             }
         }

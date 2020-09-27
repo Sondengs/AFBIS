@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.wks.WorkManagementListActivity">
+    tools:context=".ui.product_info.ProductInfoMainActivity">
 
     <!-- region header -->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -28,14 +28,14 @@
 
         <TextView
             style="@style/BaseHeader"
-            android:text="업무관리"
+            android:text="제품정보"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
-            android:id="@+id/imgWriteWork"
+            android:id="@+id/imgAdd"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:paddingStart="16dp"
@@ -78,7 +78,7 @@
                 android:layout_height="36dp"
                 android:layout_margin="16dp"
                 android:background="@drawable/shape_round5_skyblue"
-                android:hint="업무내용/요청자/담당자"
+                android:hint="바코드/품명/규격 검색"
                 android:imeOptions="actionSearch"
                 android:maxLength="20"
                 android:paddingStart="16dp"
@@ -87,7 +87,7 @@
                 android:textColorHint="@color/white"
                 android:textSize="14dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/imgFilter"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -101,15 +101,6 @@
                 app:layout_constraintEnd_toEndOf="@+id/etSearch"
                 app:layout_constraintTop_toTopOf="@+id/etSearch" />
 
-            <ImageView
-                android:id="@+id/imgFilter"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/filter_list_24_px"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.recyclerview.widget.RecyclerView
@@ -119,7 +110,8 @@
             android:layout_marginTop="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/layoutSearch"
-            tools:listitem="@layout/item_work_management_list" />
+            tools:itemCount="3"
+            tools:listitem="@layout/item_production_info_main_list" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView

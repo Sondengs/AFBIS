@@ -87,7 +87,7 @@ public class WorkerCodeMainActivity extends BaseActivity {
 
 
     private void onClickSearch(View view) {
-        String strSearch = binding.etSearch.getText().toString().trim();
+        String strSearch = binding.etSearch.getText().toString().toUpperCase().trim();
 
         if (strSearch.isEmpty()) {
             mAdapter.update(mListTotal);
@@ -99,9 +99,9 @@ public class WorkerCodeMainActivity extends BaseActivity {
         for (int i = 0; i < mListTotal.size(); i++) {
             WorkerCodeVO vo = mListTotal.get(i);
 
-            if (vo.WOC_02.contains(strSearch)
-                    || vo.WOC_09.contains(strSearch)
-                    || vo.WOC_10.contains(strSearch)) {
+            if (vo.WOC_02.toUpperCase().contains(strSearch)
+                    || vo.WOC_09.toUpperCase().contains(strSearch)
+                    || vo.WOC_10.toUpperCase().contains(strSearch)) {
                 mListSearch.add(vo);
             }
         }

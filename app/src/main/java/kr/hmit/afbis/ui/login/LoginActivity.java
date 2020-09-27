@@ -8,7 +8,6 @@ import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ActivityLoginBinding;
 import kr.hmit.afbis.ui.main.MainDashboardActivity;
-import kr.hmit.afbis.ui.wks.WorkManagementListActivity;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
 import kr.hmit.base.user_interface.UserInfo;

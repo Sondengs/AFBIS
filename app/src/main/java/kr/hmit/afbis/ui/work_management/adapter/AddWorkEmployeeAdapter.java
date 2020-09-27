@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks.adapter;
+package kr.hmit.afbis.ui.work_management.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

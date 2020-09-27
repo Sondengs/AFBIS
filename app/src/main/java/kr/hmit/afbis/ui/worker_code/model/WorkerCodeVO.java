@@ -50,4 +50,13 @@ public class WorkerCodeVO implements Serializable {
     public int WOC_80;
     public String WOC_98;
     public String WOC_99;
+    public String RetVal;
+    public String MEM_02;
+    public String MEM_32;
+    public boolean isChecked;
+    public String ParentLOT_01;
+    public String DELTECHECK_MESSAGE;
+    public boolean Validation;
+    public String SUCCESS;
+    public String ERROR_MSG;
 }

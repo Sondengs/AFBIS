@@ -1,9 +1,8 @@
-package kr.hmit.afbis.ui.wks;
+package kr.hmit.afbis.ui.work_management;
 
 import android.os.Bundle;
 
 import kr.hmit.afbis.databinding.ActivityWorkManagementFilterBinding;
-import kr.hmit.afbis.databinding.ActivityWorkerCodeFilterBinding;
 import kr.hmit.base.base_activity.BaseActivity;
 
 public class WorkManagementFilterActivity extends BaseActivity {

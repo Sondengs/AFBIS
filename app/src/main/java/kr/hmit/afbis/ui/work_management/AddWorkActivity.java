@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks;
+package kr.hmit.afbis.ui.work_management;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -26,7 +26,7 @@ import kr.hmit.afbis.model.vo.MEM_ReadVO;
 import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.network.Http;
 import kr.hmit.afbis.ui.find_employee.FindEmployeeActivity;
-import kr.hmit.afbis.ui.wks.adapter.AddWorkEmployeeAdapter;
+import kr.hmit.afbis.ui.work_management.adapter.AddWorkEmployeeAdapter;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.network.BaseConst;
 import kr.hmit.base.network.ClsNetworkCheck;
