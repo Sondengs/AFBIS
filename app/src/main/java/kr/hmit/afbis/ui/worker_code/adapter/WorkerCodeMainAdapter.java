@@ -10,9 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import kr.hmit.afbis.R;
 import kr.hmit.afbis.databinding.ItemWorkerCodeListBinding;
-import kr.hmit.afbis.ui.wks.WorkManagementListEmployeeAdapter;
 import kr.hmit.afbis.ui.worker_code.model.WorkerCodeVO;
 
 public class WorkerCodeMainAdapter extends RecyclerView.Adapter {

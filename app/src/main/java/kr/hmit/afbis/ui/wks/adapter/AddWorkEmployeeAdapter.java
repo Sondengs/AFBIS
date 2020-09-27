@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks.write_work;
+package kr.hmit.afbis.ui.wks.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import kr.hmit.afbis.databinding.ItemEmployeeListBinding;
 import kr.hmit.afbis.model.vo.MEM_ReadVO;
 
-public class WriteWorkEmployeeAdapter extends RecyclerView.Adapter {
+public class AddWorkEmployeeAdapter extends RecyclerView.Adapter {
     //=============================
     // region // variable
     //=============================
@@ -23,7 +23,7 @@ public class WriteWorkEmployeeAdapter extends RecyclerView.Adapter {
     //=============================
     // endregion // variable
     //=============================
-    public WriteWorkEmployeeAdapter(Context context, ArrayList<MEM_ReadVO> list) {
+    public AddWorkEmployeeAdapter(Context context, ArrayList<MEM_ReadVO> list) {
         mContext = context;
         mList = list;
     }

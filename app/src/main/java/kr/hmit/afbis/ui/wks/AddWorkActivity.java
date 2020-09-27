@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks.write_work;
+package kr.hmit.afbis.ui.wks;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -26,7 +26,7 @@ import kr.hmit.afbis.model.vo.MEM_ReadVO;
 import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.network.Http;
 import kr.hmit.afbis.ui.find_employee.FindEmployeeActivity;
-import kr.hmit.afbis.ui.wks.EmployeeVO;
+import kr.hmit.afbis.ui.wks.adapter.AddWorkEmployeeAdapter;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.network.BaseConst;
 import kr.hmit.base.network.ClsNetworkCheck;
@@ -36,14 +36,14 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class WriteWorkActivity extends BaseActivity {
+public class AddWorkActivity extends BaseActivity {
     //===============================
     // region // view
     //===============================
     private ActivityWriteWorkBinding binding;
     private String[] mCategory;
     private ArrayList<MEM_ReadVO> mListEmployee;
-    private WriteWorkEmployeeAdapter mAdapter;
+    private AddWorkEmployeeAdapter mAdapter;
 
     //===============================
     // endregion // view
@@ -104,7 +104,7 @@ public class WriteWorkActivity extends BaseActivity {
         binding.recyclerView.setLayoutManager(layoutManager);
 
         mListEmployee = new ArrayList<>();
-        mAdapter = new WriteWorkEmployeeAdapter(mContext, mListEmployee);
+        mAdapter = new AddWorkEmployeeAdapter(mContext, mListEmployee);
         binding.recyclerView.setAdapter(mAdapter);
     }
 

@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.inputmethod.EditorInfo;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
@@ -17,7 +16,7 @@ import kr.hmit.afbis.databinding.ActivityWorkManagementListBinding;
 import kr.hmit.afbis.model.response.WKS_Model;
 import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.network.Http;
-import kr.hmit.afbis.ui.wks.write_work.WriteWorkActivity;
+import kr.hmit.afbis.ui.wks.adapter.WorkManagementListAdapter;
 import kr.hmit.base.base_activity.BaseActivity;
 import kr.hmit.base.base_alret.BaseAlert;
 import kr.hmit.base.network.BaseConst;
@@ -239,7 +238,7 @@ public class WorkManagementListActivity extends BaseActivity {
 
 
     private void onClickGoWriteWork(View v) {
-        goActivity(WriteWorkActivity.class);
+        goActivity(AddWorkActivity.class);
     }
 
     //==============================

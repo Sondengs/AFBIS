@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.wks;
+package kr.hmit.afbis.ui.wks.model;
 
 import java.io.Serializable;
 

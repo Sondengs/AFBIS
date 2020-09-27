@@ -1,8 +1,7 @@
-package kr.hmit.afbis.ui.wks;
+package kr.hmit.afbis.ui.wks.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,9 +9,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import kr.hmit.afbis.databinding.ItemWorkManagementListBinding;
 import kr.hmit.afbis.databinding.ItemWorkManagementListEmployeeBinding;
-import kr.hmit.afbis.model.vo.WKS_VO;
+import kr.hmit.afbis.ui.wks.model.EmployeeVO;
 
 public class WorkManagementListEmployeeAdapter extends RecyclerView.Adapter {
     //=============================

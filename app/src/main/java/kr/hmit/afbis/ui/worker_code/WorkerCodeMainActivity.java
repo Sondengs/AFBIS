@@ -13,7 +13,6 @@ import java.util.ArrayList;
 
 import kr.hmit.afbis.BuildConfig;
 import kr.hmit.afbis.databinding.ActivityWorkerCodeMainBinding;
-import kr.hmit.afbis.model.vo.WKS_VO;
 import kr.hmit.afbis.ui.worker_code.adapter.WorkerCodeMainAdapter;
 import kr.hmit.afbis.ui.worker_code.model.WorkerCodeVO;
 import kr.hmit.base.base_activity.BaseActivity;

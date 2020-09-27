@@ -22,13 +22,19 @@
             android:name=".ui.wks.WorkManagementListActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.wks.write_work.WriteWorkActivity"
+            android:name=".ui.wks.AddWorkActivity"
             android:exported="true" />
         <activity
             android:name=".ui.worker_code.WorkerCodeMainActivity"
             android:exported="true" />
         <activity
             android:name=".ui.worker_code.AddWorkerCodeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.worker_code.WorkerCodeFilterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.wks.WorkManagementFilterActivity"
             android:exported="true" />
     </application>
 
