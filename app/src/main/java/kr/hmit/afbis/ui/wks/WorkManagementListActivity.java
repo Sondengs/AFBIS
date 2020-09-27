@@ -66,14 +66,7 @@ public class WorkManagementListActivity extends BaseActivity {
     @Override
     protected void initLayout() {
         binding.imgBack.setOnClickListener(v -> finish());
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false);
-        binding.recyclerView.setLayoutManager(layoutManager);
-        mListTotal = new ArrayList<>();
-        mListSearch = new ArrayList<>();
-        mAdapter = new WorkManagementListAdapter(mContext, mListTotal);
-        mAdapter.setOnItemClickListener(this::onItemClickGoDetail);
-        binding.recyclerView.setAdapter(mAdapter);
-
+        binding.recyclerView.setLayoutManager(new LinearLayoutManager(mContext, LinearLayoutManager.VERTICAL, false));
         binding.imgGoTop.setOnClickListener(this::onClickGoTop);
         binding.imgSearch.setOnClickListener(this::onClickSearch);
         binding.etSearch.setOnEditorActionListener((v, actionId, event) -> {
@@ -94,6 +87,12 @@ public class WorkManagementListActivity extends BaseActivity {
 
     @Override
     protected void initialize() {
+        mListTotal = new ArrayList<>();
+        mListSearch = new ArrayList<>();
+        mAdapter = new WorkManagementListAdapter(mContext, mListTotal);
+        mAdapter.setOnItemClickListener(this::onItemClickGoDetail);
+        binding.recyclerView.setAdapter(mAdapter);
+
         requestWKS_Read();
     }
 

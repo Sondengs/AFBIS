@@ -116,8 +116,8 @@ public class LoginActivity extends BaseActivity {
      * 메인으로 간다.
      */
     private void goMain() {
-        goActivity(WorkManagementListActivity.class);
-        //goActivity(MainDashboardActivity.class);
+//        goActivity(WorkManagementListActivity.class);
+        goActivity(MainDashboardActivity.class);
         finish();
     }
 

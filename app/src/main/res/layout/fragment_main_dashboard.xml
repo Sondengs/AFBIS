@@ -241,7 +241,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvTextMonitoring"
-            tools:visibility="gone">
+            tools:visibility="visible">
 
             <TextView
                 android:id="@+id/tvTextOver"
@@ -314,7 +314,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintGuide_begin="0dp"
+                app:layout_constraintGuide_percent="0.5"
                 app:layout_constraintStart_toStartOf="parent" />
 
             <ImageView

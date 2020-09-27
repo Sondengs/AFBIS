@@ -24,6 +24,12 @@
         <activity
             android:name=".ui.wks.write_work.WriteWorkActivity"
             android:exported="true" />
+        <activity
+            android:name=".ui.worker_code.WorkerCodeMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.worker_code.AddWorkerCodeActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
