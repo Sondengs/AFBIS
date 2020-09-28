@@ -23,7 +23,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.product_info.ProductInfoMainActivity"></activity>
+        <activity android:name=".ui.release.ReleaseMainActivity"></activity>
+        <activity android:name=".ui.product_info.AddProductInfoActivity" />
+        <activity android:name=".ui.product_info.ProductInfoMainActivity" />
         <activity android:name=".ui.work_management.WorkManagementFilterActivity" />
         <activity android:name=".ui.worker_code.WorkerCodeFilterActivity" />
         <activity android:name=".ui.worker_code.AddWorkerCodeActivity" />

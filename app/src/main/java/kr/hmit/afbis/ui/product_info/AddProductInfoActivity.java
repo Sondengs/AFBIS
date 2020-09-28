@@ -1,28 +1,28 @@
-package kr.hmit.afbis.ui.worker_code;
+package kr.hmit.afbis.ui.product_info;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import kr.hmit.afbis.R;
-import kr.hmit.afbis.databinding.ActivityAddWorkerCodeBinding;
-import kr.hmit.afbis.databinding.ActivityWorkerCodeFilterBinding;
+import kr.hmit.afbis.databinding.ActivityAddProductInfoBinding;
 import kr.hmit.base.base_activity.BaseActivity;
 
-public class AddWorkerCodeActivity extends BaseActivity {
-    //================================
+public class AddProductInfoActivity extends BaseActivity {
+//================================
     // region // view
     //================================
 
-    private ActivityAddWorkerCodeBinding binding;
+    private ActivityAddProductInfoBinding binding;
 
     //================================
     // endregion // view
     //================================
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityAddWorkerCodeBinding.inflate(getLayoutInflater());
+        binding = ActivityAddProductInfoBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         initLayout();

@@ -1,4 +1,4 @@
-package kr.hmit.afbis.ui.worker_code.adapter;
+package kr.hmit.afbis.ui.release.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,10 +10,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import kr.hmit.afbis.databinding.ItemWorkerCodeListBinding;
-import kr.hmit.afbis.ui.worker_code.model.WorkerCodeVO;
+import kr.hmit.afbis.databinding.ItemReleaseMainListBinding;
+import kr.hmit.afbis.ui.release.model.ReleaseVO;
+import kr.hmit.afbis.ui.worker_code.adapter.WorkerCodeMainAdapter;
 
-public class WorkerCodeMainAdapter extends RecyclerView.Adapter {
+public class ReleaseListAdapter extends RecyclerView.Adapter {
     //=================================
     // region // interface
     //=================================
@@ -33,16 +34,16 @@ public class WorkerCodeMainAdapter extends RecyclerView.Adapter {
     //=============================
     // region // variable
     //=============================
+
     private Context mContext;
 
-    private ArrayList<WorkerCodeVO> mList;
+    private ArrayList<ReleaseVO> mList;
 
     //=============================
     // endregion // variable
     //=============================
 
-
-    public WorkerCodeMainAdapter(Context context, ArrayList<WorkerCodeVO> list) {
+    public ReleaseListAdapter(Context context, ArrayList<ReleaseVO> list) {
         mContext = context;
         mList = list;
     }
@@ -50,24 +51,27 @@ public class WorkerCodeMainAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new ViewHolder(ItemWorkerCodeListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+        return new ViewHolder(ItemReleaseMainListBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         ViewHolder finalHolder = (ViewHolder) holder;
-        WorkerCodeVO vo = mList.get(position);
+        ReleaseVO vo = mList.get(position);
 
-        //finalHolder.binding.imgProfile.setImageResource(R.drawable.no_profile);
-        finalHolder.binding.tvWorkerName.setText(vo.WOC_02);
-        finalHolder.binding.tvPart.setText(vo.WOC_09);
-        finalHolder.binding.tvPosition.setText(vo.WOC_10);
+        finalHolder.binding.tvOrderNumber.setText(vo.REQ_01);
+        finalHolder.binding.tvOrderDate.setText(vo.REQ_02);
+        finalHolder.binding.tvOrderName.setText(vo.REQ_03_NM);
+        finalHolder.binding.tvOrderProduct.setText(vo.REQ_04);
+        finalHolder.binding.tvQuantity.setText(String.valueOf(vo.REQ_06));
+        finalHolder.binding.tvPrice.setText(String.valueOf(vo.REQ_05));
     }
 
     @Override
     public int getItemCount() {
         return mList.size();
     }
+
 
     //=============================
     // region // methods
@@ -78,24 +82,20 @@ public class WorkerCodeMainAdapter extends RecyclerView.Adapter {
      *
      * @param list
      */
-    public void update(ArrayList<WorkerCodeVO> list) {
+    public void update(ArrayList<ReleaseVO> list) {
         mList = list;
 
         notifyDataSetChanged();
     }
-
-    //=============================
-    // endregion // variable
-    //=============================
 
 
     //=============================
     // region // ViewHolder
     //=============================
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ItemWorkerCodeListBinding binding;
+        ItemReleaseMainListBinding binding;
 
-        public ViewHolder(ItemWorkerCodeListBinding binding) {
+        public ViewHolder(ItemReleaseMainListBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
 

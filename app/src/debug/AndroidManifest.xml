@@ -19,7 +19,7 @@
             android:name=".ui.find_employee.FindEmployeeActivity"
             android:exported="true" />
         <activity
-            android:name=".ui.work_management.WorkManagementListActivity"
+            android:name=".ui.work_management.WorkManagementMainActivity"
             android:exported="true" />
         <activity
             android:name=".ui.work_management.AddWorkActivity"
@@ -38,6 +38,9 @@
             android:exported="true" />
         <activity
             android:name=".ui.product_info.ProductInfoMainActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.release.ReleaseMainActivity"
             android:exported="true" />
     </application>
 
